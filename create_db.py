@@ -1,6 +1,6 @@
 # create_db.py
 from app.db.session import engine
-from app.db.models.user import Base
+from app.db.base import Base  # ✅ Base that imports ALL models
 
 def init_db():
     Base.metadata.create_all(bind=engine)
