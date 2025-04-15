@@ -10,6 +10,7 @@ class ItemCreate(ItemBase):
 
 class ItemRead(ItemBase):
     id: int
+    user_id: int # ✅ Add this to show item ownership
 
     class Config:
         orm_mode = True

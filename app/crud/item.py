@@ -2,8 +2,8 @@ from sqlalchemy.orm import Session
 from app.db.models.item import Item
 from app.schemas.item import ItemCreate
 
-def create_item(db: Session, item: ItemCreate) -> Item:
-    db_item = Item(**item.dict())
+def create_item(db: Session, item: ItemCreate, user_id: int) -> Item:
+    db_item = Item(**item.model_dump(), user_id=user_id)
     db.add(db_item)
     db.commit()
     db.refresh(db_item)
